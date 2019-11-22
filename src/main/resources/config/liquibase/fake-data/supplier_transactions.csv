@@ -1,0 +1,11 @@
+id;supplier_invoice_number;transaction_date;amount_excluding_tax;tax_amount;transaction_amount;outstanding_balance;finalization_date;is_finalized;last_edited_by;last_edited_when
+1;Aruban Guilder;2019-11-18T08:31:50;37847;66183;36294;55778;2019-11-18T08:29:54;true;Hill Awesome Rubber Computer;2019-11-18T09:24:25
+2;Tuna El Salvador Colon US Dollar mint green;2019-11-18T19:31:48;40947;9667;42268;45037;2019-11-18T12:39:59;true;B2C;2019-11-18T16:25:55
+3;online Markets Cross-group;2019-11-18T22:48:22;97416;15241;2002;99248;2019-11-18T14:41:51;true;Dominican Republic quantifying Benin;2019-11-18T17:25:25
+4;Licensed;2019-11-18T14:15:48;86468;12771;60848;82606;2019-11-18T20:13:32;true;protocol;2019-11-19T07:31:18
+5;contingency;2019-11-19T02:04:30;34167;36013;38090;8764;2019-11-19T00:04:41;true;Lithuania;2019-11-19T01:03:26
+6;morph Village Auto Loan Account;2019-11-18T20:00:48;16176;91939;78627;49696;2019-11-18T18:35:59;true;navigating tan;2019-11-18T10:03:20
+7;Granite quantifying;2019-11-18T23:15:17;67430;87797;53248;86805;2019-11-18T15:04:33;true;digital;2019-11-19T01:04:39
+8;Incredible utilize Keyboard;2019-11-18T15:42:40;22361;34609;95732;97561;2019-11-18T18:38:12;true;generating Granite FTP;2019-11-18T10:14:37
+9;Avon Personal Loan Account;2019-11-18T14:02:04;82933;17483;31753;50256;2019-11-18T09:31:22;false;Metal leading-edge Sleek Steel Hat;2019-11-19T05:08:44
+10;Associate;2019-11-18T19:12:04;77672;96582;12203;43249;2019-11-18T18:07:37;false;Cambridgeshire solutions Refined;2019-11-18T17:00:36

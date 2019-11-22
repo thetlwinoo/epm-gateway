@@ -1,0 +1,36 @@
+{
+  "epmgatewayApp": {
+    "epmcloudblobBlobPhotos": {
+      "home": {
+        "title": "Blob Photos",
+        "createLabel": "Blob Photos အသစ်ထည့်မည်",
+        "createOrEditLabel": "Blob Photos အသစ်ထည့်ခြင်း (သို့) ပြုပြင်ခြင်း",
+        "search": "ရှာဖွေရန် Blob Photos",
+        "notFound": "No Blob Photos found"
+      },
+      "delete": {
+        "question": "Blob Photos {{ id }} အား ဖျက်ပါမည်။ သေချာပါသလား?"
+      },
+      "detail": {
+        "title": "Blob Photos"
+      },
+      "thumbnailPhotoBlob": "Thumbnail Photo Blob",
+      "originalPhotoBlob": "Original Photo Blob",
+      "bannerTallPhotoBlob": "Banner Tall Photo Blob",
+      "bannerWidePhotoBlob": "Banner Wide Photo Blob",
+      "circlePhotoBlob": "Circle Photo Blob",
+      "sharpenedPhotoBlob": "Sharpened Photo Blob",
+      "squarePhotoBlob": "Square Photo Blob",
+      "watermarkPhotoBlob": "Watermark Photo Blob",
+      "lastEditedBy": "Last Edited By",
+      "lastEditedWhen": "Last Edited When"
+    }
+  },
+  "epmcloudblobApp": {
+    "epmcloudblobBlobPhotos": {
+      "created": "{{ param }} အိုင်ဒီဖြင့် Blob Photos အသစ်တစ်ခုအား ထည့်ပြီးပါပြီ။",
+      "updated": "{{ param }} အိုင်ဒီဖြင့် Blob Photos တစ်ခုအား ပြုပြင်ပြီးပါပြီ။",
+      "deleted": "{{ param }} အိုင်ဒီဖြင့် Blob Photos တစ်ခုအား ဖျက်ပြီးပါပြီ။"
+    }
+  }
+}

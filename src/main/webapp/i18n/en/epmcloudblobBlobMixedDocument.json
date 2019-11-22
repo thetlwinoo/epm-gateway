@@ -1,0 +1,29 @@
+{
+  "epmgatewayApp": {
+    "epmcloudblobBlobMixedDocument": {
+      "home": {
+        "title": "Blob Mixed Documents",
+        "createLabel": "Create a new Blob Mixed Document",
+        "createOrEditLabel": "Create or edit a Blob Mixed Document",
+        "search": "Search for Blob Mixed Document",
+        "notFound": "No Blob Mixed Documents found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Blob Mixed Document {{ id }}?"
+      },
+      "detail": {
+        "title": "Blob Mixed Document"
+      },
+      "document": "Document",
+      "lastEditedBy": "Last Edited By",
+      "lastEditedWhen": "Last Edited When"
+    }
+  },
+  "epmcloudblobApp": {
+    "epmcloudblobBlobMixedDocument": {
+      "created": "A new Blob Mixed Document is created with identifier {{ param }}",
+      "updated": "A Blob Mixed Document is updated with identifier {{ param }}",
+      "deleted": "A Blob Mixed Document is deleted with identifier {{ param }}"
+    }
+  }
+}

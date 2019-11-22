@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="blobMixedDocument">
+            <h2><span jhiTranslate="epmgatewayApp.epmcloudblobBlobMixedDocument.detail.title">Blob Mixed Document</span> {{blobMixedDocument.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="epmgatewayApp.epmcloudblobBlobMixedDocument.document">Document</span></dt>
+                <dd>
+                    <span>{{blobMixedDocument.document}}</span>
+                </dd>
+                <dt><span jhiTranslate="epmgatewayApp.epmcloudblobBlobMixedDocument.lastEditedBy">Last Edited By</span></dt>
+                <dd>
+                    <span>{{blobMixedDocument.lastEditedBy}}</span>
+                </dd>
+                <dt><span jhiTranslate="epmgatewayApp.epmcloudblobBlobMixedDocument.lastEditedWhen">Last Edited When</span></dt>
+                <dd>
+                    <span>{{blobMixedDocument.lastEditedWhen}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/blob-mixed-document', blobMixedDocument.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

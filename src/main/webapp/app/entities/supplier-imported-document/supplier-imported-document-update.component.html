@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-supplier-imported-document-heading" jhiTranslate="epmgatewayApp.supplierImportedDocument.home.createOrEditLabel">Create or edit a Supplier Imported Document</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="epmgatewayApp.supplierImportedDocument.documentUrl" for="field_documentUrl">Document Url</label>
+                    <input type="text" class="form-control" name="documentUrl" id="field_documentUrl"
+                           formControlName="documentUrl"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="epmgatewayApp.supplierImportedDocument.documentType" for="field_documentType">Document Type</label>
+                    <select class="form-control" name="documentType" formControlName="documentType" id="field_documentType">
+                        <option value="FAILED">{{'epmgatewayApp.DocumentType.FAILED' | translate}}</option>
+                        <option value="COMPLETED">{{'epmgatewayApp.DocumentType.COMPLETED' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="epmgatewayApp.supplierImportedDocument.lastEditedBy" for="field_lastEditedBy">Last Edited By</label>
+                    <input type="text" class="form-control" name="lastEditedBy" id="field_lastEditedBy"
+                           formControlName="lastEditedBy"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="epmgatewayApp.supplierImportedDocument.lastEditedWhen" for="field_lastEditedWhen">Last Edited When</label>
+                    <div class="d-flex">
+                        <input id="field_lastEditedWhen" type="datetime-local" class="form-control" name="lastEditedWhen" formControlName="lastEditedWhen" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="epmgatewayApp.supplierImportedDocument.uploadTransaction" for="field_uploadTransaction">Upload Transaction</label>
+                    <select class="form-control" id="field_uploadTransaction" name="uploadTransaction" formControlName="uploadTransactionId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="uploadTransactionsOption.id" *ngFor="let uploadTransactionsOption of uploadtransactions; trackBy: trackUploadTransactionsById">{{uploadTransactionsOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

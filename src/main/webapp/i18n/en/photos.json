@@ -1,0 +1,34 @@
+{
+  "epmgatewayApp": {
+    "photos": {
+      "home": {
+        "title": "Photos",
+        "createLabel": "Create a new Photos",
+        "createOrEditLabel": "Create or edit a Photos",
+        "search": "Search for Photos",
+        "notFound": "No Photos found"
+      },
+      "created": "A new Photos is created with identifier {{ param }}",
+      "updated": "A Photos is updated with identifier {{ param }}",
+      "deleted": "A Photos is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Photos {{ id }}?"
+      },
+      "detail": {
+        "title": "Photos"
+      },
+      "thumbnailImageUrl": "Thumbnail Image Url",
+      "originalImageUrl": "Original Image Url",
+      "bannerTallImageUrl": "Banner Tall Image Url",
+      "bannerWideImageUrl": "Banner Wide Image Url",
+      "circleImageUrl": "Circle Image Url",
+      "sharpenedImageUrl": "Sharpened Image Url",
+      "squareImageUrl": "Square Image Url",
+      "watermarkImageUrl": "Watermark Image Url",
+      "priority": "Priority",
+      "defaultInd": "Default Ind",
+      "stockItem": "Stock Item",
+      "productCategory": "Product Category"
+    }
+  }
+}

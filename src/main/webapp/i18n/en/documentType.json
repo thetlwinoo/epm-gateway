@@ -1,0 +1,9 @@
+{
+  "epmgatewayApp": {
+    "DocumentType": {
+      "null": "",
+      "FAILED": "FAILED",
+      "COMPLETED": "COMPLETED"
+    }
+  }
+}

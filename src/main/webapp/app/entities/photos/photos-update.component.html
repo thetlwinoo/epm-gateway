@@ -1,0 +1,88 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-photos-heading" jhiTranslate="epmgatewayApp.photos.home.createOrEditLabel">Create or edit a Photos</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="epmgatewayApp.photos.thumbnailImageUrl" for="field_thumbnailImageUrl">Thumbnail Image Url</label>
+                    <input type="text" class="form-control" name="thumbnailImageUrl" id="field_thumbnailImageUrl"
+                           formControlName="thumbnailImageUrl"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="epmgatewayApp.photos.originalImageUrl" for="field_originalImageUrl">Original Image Url</label>
+                    <input type="text" class="form-control" name="originalImageUrl" id="field_originalImageUrl"
+                           formControlName="originalImageUrl"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="epmgatewayApp.photos.bannerTallImageUrl" for="field_bannerTallImageUrl">Banner Tall Image Url</label>
+                    <input type="text" class="form-control" name="bannerTallImageUrl" id="field_bannerTallImageUrl"
+                           formControlName="bannerTallImageUrl"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="epmgatewayApp.photos.bannerWideImageUrl" for="field_bannerWideImageUrl">Banner Wide Image Url</label>
+                    <input type="text" class="form-control" name="bannerWideImageUrl" id="field_bannerWideImageUrl"
+                           formControlName="bannerWideImageUrl"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="epmgatewayApp.photos.circleImageUrl" for="field_circleImageUrl">Circle Image Url</label>
+                    <input type="text" class="form-control" name="circleImageUrl" id="field_circleImageUrl"
+                           formControlName="circleImageUrl"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="epmgatewayApp.photos.sharpenedImageUrl" for="field_sharpenedImageUrl">Sharpened Image Url</label>
+                    <input type="text" class="form-control" name="sharpenedImageUrl" id="field_sharpenedImageUrl"
+                           formControlName="sharpenedImageUrl"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="epmgatewayApp.photos.squareImageUrl" for="field_squareImageUrl">Square Image Url</label>
+                    <input type="text" class="form-control" name="squareImageUrl" id="field_squareImageUrl"
+                           formControlName="squareImageUrl"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="epmgatewayApp.photos.watermarkImageUrl" for="field_watermarkImageUrl">Watermark Image Url</label>
+                    <input type="text" class="form-control" name="watermarkImageUrl" id="field_watermarkImageUrl"
+                           formControlName="watermarkImageUrl"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="epmgatewayApp.photos.priority" for="field_priority">Priority</label>
+                    <input type="number" class="form-control" name="priority" id="field_priority"
+                           formControlName="priority"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="epmgatewayApp.photos.defaultInd" for="field_defaultInd">Default Ind</label>
+                    <input type="checkbox" class="form-control" name="defaultInd" id="field_defaultInd"
+                           formControlName="defaultInd"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="epmgatewayApp.photos.stockItem" for="field_stockItem">Stock Item</label>
+                    <select class="form-control" id="field_stockItem" name="stockItem" formControlName="stockItemId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="stockItemsOption.id" *ngFor="let stockItemsOption of stockitems; trackBy: trackStockItemsById">{{stockItemsOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="epmgatewayApp.photos.productCategory" for="field_productCategory">Product Category</label>
+                    <select class="form-control" id="field_productCategory" name="productCategory" formControlName="productCategoryId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="productCategoryOption.id" *ngFor="let productCategoryOption of productcategories; trackBy: trackProductCategoryById">{{productCategoryOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

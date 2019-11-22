@@ -1,0 +1,103 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="blobPhotos">
+            <h2><span jhiTranslate="epmgatewayApp.epmcloudblobBlobPhotos.detail.title">Blob Photos</span> {{blobPhotos.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="epmgatewayApp.epmcloudblobBlobPhotos.thumbnailPhotoBlob">Thumbnail Photo Blob</span></dt>
+                <dd>
+                    <div *ngIf="blobPhotos.thumbnailPhotoBlob">
+                        <a (click)="openFile(blobPhotos.thumbnailPhotoBlobContentType, blobPhotos.thumbnailPhotoBlob)">
+                            <img [src]="'data:' + blobPhotos.thumbnailPhotoBlobContentType + ';base64,' + blobPhotos.thumbnailPhotoBlob" style="max-width: 100%;" alt="blobPhotos image"/>
+                        </a>
+                        {{blobPhotos.thumbnailPhotoBlobContentType}}, {{byteSize(blobPhotos.thumbnailPhotoBlob)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="epmgatewayApp.epmcloudblobBlobPhotos.originalPhotoBlob">Original Photo Blob</span></dt>
+                <dd>
+                    <div *ngIf="blobPhotos.originalPhotoBlob">
+                        <a (click)="openFile(blobPhotos.originalPhotoBlobContentType, blobPhotos.originalPhotoBlob)">
+                            <img [src]="'data:' + blobPhotos.originalPhotoBlobContentType + ';base64,' + blobPhotos.originalPhotoBlob" style="max-width: 100%;" alt="blobPhotos image"/>
+                        </a>
+                        {{blobPhotos.originalPhotoBlobContentType}}, {{byteSize(blobPhotos.originalPhotoBlob)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="epmgatewayApp.epmcloudblobBlobPhotos.bannerTallPhotoBlob">Banner Tall Photo Blob</span></dt>
+                <dd>
+                    <div *ngIf="blobPhotos.bannerTallPhotoBlob">
+                        <a (click)="openFile(blobPhotos.bannerTallPhotoBlobContentType, blobPhotos.bannerTallPhotoBlob)">
+                            <img [src]="'data:' + blobPhotos.bannerTallPhotoBlobContentType + ';base64,' + blobPhotos.bannerTallPhotoBlob" style="max-width: 100%;" alt="blobPhotos image"/>
+                        </a>
+                        {{blobPhotos.bannerTallPhotoBlobContentType}}, {{byteSize(blobPhotos.bannerTallPhotoBlob)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="epmgatewayApp.epmcloudblobBlobPhotos.bannerWidePhotoBlob">Banner Wide Photo Blob</span></dt>
+                <dd>
+                    <div *ngIf="blobPhotos.bannerWidePhotoBlob">
+                        <a (click)="openFile(blobPhotos.bannerWidePhotoBlobContentType, blobPhotos.bannerWidePhotoBlob)">
+                            <img [src]="'data:' + blobPhotos.bannerWidePhotoBlobContentType + ';base64,' + blobPhotos.bannerWidePhotoBlob" style="max-width: 100%;" alt="blobPhotos image"/>
+                        </a>
+                        {{blobPhotos.bannerWidePhotoBlobContentType}}, {{byteSize(blobPhotos.bannerWidePhotoBlob)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="epmgatewayApp.epmcloudblobBlobPhotos.circlePhotoBlob">Circle Photo Blob</span></dt>
+                <dd>
+                    <div *ngIf="blobPhotos.circlePhotoBlob">
+                        <a (click)="openFile(blobPhotos.circlePhotoBlobContentType, blobPhotos.circlePhotoBlob)">
+                            <img [src]="'data:' + blobPhotos.circlePhotoBlobContentType + ';base64,' + blobPhotos.circlePhotoBlob" style="max-width: 100%;" alt="blobPhotos image"/>
+                        </a>
+                        {{blobPhotos.circlePhotoBlobContentType}}, {{byteSize(blobPhotos.circlePhotoBlob)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="epmgatewayApp.epmcloudblobBlobPhotos.sharpenedPhotoBlob">Sharpened Photo Blob</span></dt>
+                <dd>
+                    <div *ngIf="blobPhotos.sharpenedPhotoBlob">
+                        <a (click)="openFile(blobPhotos.sharpenedPhotoBlobContentType, blobPhotos.sharpenedPhotoBlob)">
+                            <img [src]="'data:' + blobPhotos.sharpenedPhotoBlobContentType + ';base64,' + blobPhotos.sharpenedPhotoBlob" style="max-width: 100%;" alt="blobPhotos image"/>
+                        </a>
+                        {{blobPhotos.sharpenedPhotoBlobContentType}}, {{byteSize(blobPhotos.sharpenedPhotoBlob)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="epmgatewayApp.epmcloudblobBlobPhotos.squarePhotoBlob">Square Photo Blob</span></dt>
+                <dd>
+                    <div *ngIf="blobPhotos.squarePhotoBlob">
+                        <a (click)="openFile(blobPhotos.squarePhotoBlobContentType, blobPhotos.squarePhotoBlob)">
+                            <img [src]="'data:' + blobPhotos.squarePhotoBlobContentType + ';base64,' + blobPhotos.squarePhotoBlob" style="max-width: 100%;" alt="blobPhotos image"/>
+                        </a>
+                        {{blobPhotos.squarePhotoBlobContentType}}, {{byteSize(blobPhotos.squarePhotoBlob)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="epmgatewayApp.epmcloudblobBlobPhotos.watermarkPhotoBlob">Watermark Photo Blob</span></dt>
+                <dd>
+                    <div *ngIf="blobPhotos.watermarkPhotoBlob">
+                        <a (click)="openFile(blobPhotos.watermarkPhotoBlobContentType, blobPhotos.watermarkPhotoBlob)">
+                            <img [src]="'data:' + blobPhotos.watermarkPhotoBlobContentType + ';base64,' + blobPhotos.watermarkPhotoBlob" style="max-width: 100%;" alt="blobPhotos image"/>
+                        </a>
+                        {{blobPhotos.watermarkPhotoBlobContentType}}, {{byteSize(blobPhotos.watermarkPhotoBlob)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="epmgatewayApp.epmcloudblobBlobPhotos.lastEditedBy">Last Edited By</span></dt>
+                <dd>
+                    <span>{{blobPhotos.lastEditedBy}}</span>
+                </dd>
+                <dt><span jhiTranslate="epmgatewayApp.epmcloudblobBlobPhotos.lastEditedWhen">Last Edited When</span></dt>
+                <dd>
+                    <span>{{blobPhotos.lastEditedWhen}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/blob-photos', blobPhotos.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,91 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="epmgatewayApp.stateProvinces.home.title">State Provinces</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-state-provinces" [routerLink]="['/state-provinces/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="epmgatewayApp.stateProvinces.home.createLabel">
+            Create a new State Provinces
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'epmgatewayApp.stateProvinces.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="alert alert-warning" *ngIf="stateProvinces?.length === 0">
+        <span jhiTranslate="epmgatewayApp.stateProvinces.home.notFound">No stateProvinces found</span>
+    </div>
+    <div class="table-responsive" *ngIf="stateProvinces?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="epmgatewayApp.stateProvinces.code">Code</span></th>
+            <th scope="col" ><span jhiTranslate="epmgatewayApp.stateProvinces.name">Name</span></th>
+            <th scope="col" ><span jhiTranslate="epmgatewayApp.stateProvinces.salesTerritory">Sales Territory</span></th>
+            <th scope="col" ><span jhiTranslate="epmgatewayApp.stateProvinces.border">Border</span></th>
+            <th scope="col" ><span jhiTranslate="epmgatewayApp.stateProvinces.latestRecordedPopulation">Latest Recorded Population</span></th>
+            <th scope="col" ><span jhiTranslate="epmgatewayApp.stateProvinces.validFrom">Valid From</span></th>
+            <th scope="col" ><span jhiTranslate="epmgatewayApp.stateProvinces.validTo">Valid To</span></th>
+            <th scope="col" ><span jhiTranslate="epmgatewayApp.stateProvinces.country">Country</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let stateProvinces of stateProvinces ;trackBy: trackId">
+                <td><a [routerLink]="['/state-provinces', stateProvinces.id, 'view' ]">{{stateProvinces.id}}</a></td>
+                <td>{{stateProvinces.code}}</td>
+                <td>{{stateProvinces.name}}</td>
+                <td>{{stateProvinces.salesTerritory}}</td>
+                <td>{{stateProvinces.border}}</td>
+                <td>{{stateProvinces.latestRecordedPopulation}}</td>
+                <td>{{stateProvinces.validFrom | date:'medium'}}</td>
+                <td>{{stateProvinces.validTo | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="stateProvinces.countryId">
+                        <a [routerLink]="['/countries', stateProvinces.countryId , 'view' ]" >{{stateProvinces.countryName}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/state-provinces', stateProvinces.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/state-provinces', stateProvinces.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/state-provinces', { outlets: { popup: stateProvinces.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

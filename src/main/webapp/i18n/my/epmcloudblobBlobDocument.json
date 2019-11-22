@@ -1,0 +1,29 @@
+{
+  "epmgatewayApp": {
+    "epmcloudblobBlobDocument": {
+      "home": {
+        "title": "Blob Documents",
+        "createLabel": "Blob Document အသစ်ထည့်မည်",
+        "createOrEditLabel": "Blob Document အသစ်ထည့်ခြင်း (သို့) ပြုပြင်ခြင်း",
+        "search": "ရှာဖွေရန် Blob Document",
+        "notFound": "No Blob Documents found"
+      },
+      "delete": {
+        "question": "Blob Document {{ id }} အား ဖျက်ပါမည်။ သေချာပါသလား?"
+      },
+      "detail": {
+        "title": "Blob Document"
+      },
+      "document": "Document",
+      "lastEditedBy": "Last Edited By",
+      "lastEditedWhen": "Last Edited When"
+    }
+  },
+  "epmcloudblobApp": {
+    "epmcloudblobBlobDocument": {
+      "created": "{{ param }} အိုင်ဒီဖြင့် Blob Document အသစ်တစ်ခုအား ထည့်ပြီးပါပြီ။",
+      "updated": "{{ param }} အိုင်ဒီဖြင့် Blob Document တစ်ခုအား ပြုပြင်ပြီးပါပြီ။",
+      "deleted": "{{ param }} အိုင်ဒီဖြင့် Blob Document တစ်ခုအား ဖျက်ပြီးပါပြီ။"
+    }
+  }
+}

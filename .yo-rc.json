@@ -2,7 +2,8 @@
   "generator-jhipster": {
     "promptValues": {
       "packageName": "com.epmserver.gateway",
-      "nativeLanguage": "en"
+      "nativeLanguage": "en",
+      "microservicePath": "../epm-cloudblob"
     },
     "jhipsterVersion": "6.4.1",
     "applicationType": "gateway",

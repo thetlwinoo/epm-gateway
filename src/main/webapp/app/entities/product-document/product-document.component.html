@@ -1,0 +1,119 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="epmgatewayApp.productDocument.home.title">Product Documents</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-product-document" [routerLink]="['/product-document/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="epmgatewayApp.productDocument.home.createLabel">
+            Create a new Product Document
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'epmgatewayApp.productDocument.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="alert alert-warning" *ngIf="productDocuments?.length === 0">
+        <span jhiTranslate="epmgatewayApp.productDocument.home.notFound">No productDocuments found</span>
+    </div>
+    <div class="table-responsive" *ngIf="productDocuments?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="epmgatewayApp.productDocument.videoUrl">Video Url</span></th>
+            <th scope="col" ><span jhiTranslate="epmgatewayApp.productDocument.highlightsUrl">Highlights Url</span></th>
+            <th scope="col" ><span jhiTranslate="epmgatewayApp.productDocument.longDescriptionUrl">Long Description Url</span></th>
+            <th scope="col" ><span jhiTranslate="epmgatewayApp.productDocument.shortDescriptionUrl">Short Description Url</span></th>
+            <th scope="col" ><span jhiTranslate="epmgatewayApp.productDocument.descriptionUrl">Description Url</span></th>
+            <th scope="col" ><span jhiTranslate="epmgatewayApp.productDocument.careInstructionsUrl">Care Instructions Url</span></th>
+            <th scope="col" ><span jhiTranslate="epmgatewayApp.productDocument.specialFeaturesUrl">Special Features Url</span></th>
+            <th scope="col" ><span jhiTranslate="epmgatewayApp.productDocument.usageAndSideEffectsUrl">Usage And Side Effects Url</span></th>
+            <th scope="col" ><span jhiTranslate="epmgatewayApp.productDocument.safetyWarnningUrl">Safety Warnning Url</span></th>
+            <th scope="col" ><span jhiTranslate="epmgatewayApp.productDocument.productType">Product Type</span></th>
+            <th scope="col" ><span jhiTranslate="epmgatewayApp.productDocument.modelName">Model Name</span></th>
+            <th scope="col" ><span jhiTranslate="epmgatewayApp.productDocument.modelNumber">Model Number</span></th>
+            <th scope="col" ><span jhiTranslate="epmgatewayApp.productDocument.fabricType">Fabric Type</span></th>
+            <th scope="col" ><span jhiTranslate="epmgatewayApp.productDocument.productComplianceCertificate">Product Compliance Certificate</span></th>
+            <th scope="col" ><span jhiTranslate="epmgatewayApp.productDocument.genuineAndLegal">Genuine And Legal</span></th>
+            <th scope="col" ><span jhiTranslate="epmgatewayApp.productDocument.countryOfOrigin">Country Of Origin</span></th>
+            <th scope="col" ><span jhiTranslate="epmgatewayApp.productDocument.warrantyPeriod">Warranty Period</span></th>
+            <th scope="col" ><span jhiTranslate="epmgatewayApp.productDocument.warrantyPolicy">Warranty Policy</span></th>
+            <th scope="col" ><span jhiTranslate="epmgatewayApp.productDocument.warrantyType">Warranty Type</span></th>
+            <th scope="col" ><span jhiTranslate="epmgatewayApp.productDocument.culture">Culture</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let productDocument of productDocuments ;trackBy: trackId">
+                <td><a [routerLink]="['/product-document', productDocument.id, 'view' ]">{{productDocument.id}}</a></td>
+                <td>{{productDocument.videoUrl}}</td>
+                <td>{{productDocument.highlightsUrl}}</td>
+                <td>{{productDocument.longDescriptionUrl}}</td>
+                <td>{{productDocument.shortDescriptionUrl}}</td>
+                <td>{{productDocument.descriptionUrl}}</td>
+                <td>{{productDocument.careInstructionsUrl}}</td>
+                <td>{{productDocument.specialFeaturesUrl}}</td>
+                <td>{{productDocument.usageAndSideEffectsUrl}}</td>
+                <td>{{productDocument.safetyWarnningUrl}}</td>
+                <td>{{productDocument.productType}}</td>
+                <td>{{productDocument.modelName}}</td>
+                <td>{{productDocument.modelNumber}}</td>
+                <td>{{productDocument.fabricType}}</td>
+                <td>{{productDocument.productComplianceCertificate}}</td>
+                <td>{{productDocument.genuineAndLegal}}</td>
+                <td>{{productDocument.countryOfOrigin}}</td>
+                <td>{{productDocument.warrantyPeriod}}</td>
+                <td>{{productDocument.warrantyPolicy}}</td>
+                <td>
+                    <div *ngIf="productDocument.warrantyTypeId">
+                        <a [routerLink]="['/warranty-types', productDocument.warrantyTypeId , 'view' ]" >{{productDocument.warrantyTypeName}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="productDocument.cultureId">
+                        <a [routerLink]="['/culture', productDocument.cultureId , 'view' ]" >{{productDocument.cultureName}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/product-document', productDocument.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/product-document', productDocument.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/product-document', { outlets: { popup: productDocument.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

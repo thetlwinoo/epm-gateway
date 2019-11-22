@@ -1,0 +1,107 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="productDocument">
+            <h2><span jhiTranslate="epmgatewayApp.productDocument.detail.title">Product Document</span> {{productDocument.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="epmgatewayApp.productDocument.videoUrl">Video Url</span></dt>
+                <dd>
+                    <span>{{productDocument.videoUrl}}</span>
+                </dd>
+                <dt><span jhiTranslate="epmgatewayApp.productDocument.highlightsUrl">Highlights Url</span></dt>
+                <dd>
+                    <span>{{productDocument.highlightsUrl}}</span>
+                </dd>
+                <dt><span jhiTranslate="epmgatewayApp.productDocument.longDescriptionUrl">Long Description Url</span></dt>
+                <dd>
+                    <span>{{productDocument.longDescriptionUrl}}</span>
+                </dd>
+                <dt><span jhiTranslate="epmgatewayApp.productDocument.shortDescriptionUrl">Short Description Url</span></dt>
+                <dd>
+                    <span>{{productDocument.shortDescriptionUrl}}</span>
+                </dd>
+                <dt><span jhiTranslate="epmgatewayApp.productDocument.descriptionUrl">Description Url</span></dt>
+                <dd>
+                    <span>{{productDocument.descriptionUrl}}</span>
+                </dd>
+                <dt><span jhiTranslate="epmgatewayApp.productDocument.careInstructionsUrl">Care Instructions Url</span></dt>
+                <dd>
+                    <span>{{productDocument.careInstructionsUrl}}</span>
+                </dd>
+                <dt><span jhiTranslate="epmgatewayApp.productDocument.specialFeaturesUrl">Special Features Url</span></dt>
+                <dd>
+                    <span>{{productDocument.specialFeaturesUrl}}</span>
+                </dd>
+                <dt><span jhiTranslate="epmgatewayApp.productDocument.usageAndSideEffectsUrl">Usage And Side Effects Url</span></dt>
+                <dd>
+                    <span>{{productDocument.usageAndSideEffectsUrl}}</span>
+                </dd>
+                <dt><span jhiTranslate="epmgatewayApp.productDocument.safetyWarnningUrl">Safety Warnning Url</span></dt>
+                <dd>
+                    <span>{{productDocument.safetyWarnningUrl}}</span>
+                </dd>
+                <dt><span jhiTranslate="epmgatewayApp.productDocument.productType">Product Type</span></dt>
+                <dd>
+                    <span>{{productDocument.productType}}</span>
+                </dd>
+                <dt><span jhiTranslate="epmgatewayApp.productDocument.modelName">Model Name</span></dt>
+                <dd>
+                    <span>{{productDocument.modelName}}</span>
+                </dd>
+                <dt><span jhiTranslate="epmgatewayApp.productDocument.modelNumber">Model Number</span></dt>
+                <dd>
+                    <span>{{productDocument.modelNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="epmgatewayApp.productDocument.fabricType">Fabric Type</span></dt>
+                <dd>
+                    <span>{{productDocument.fabricType}}</span>
+                </dd>
+                <dt><span jhiTranslate="epmgatewayApp.productDocument.productComplianceCertificate">Product Compliance Certificate</span></dt>
+                <dd>
+                    <span>{{productDocument.productComplianceCertificate}}</span>
+                </dd>
+                <dt><span jhiTranslate="epmgatewayApp.productDocument.genuineAndLegal">Genuine And Legal</span></dt>
+                <dd>
+                    <span>{{productDocument.genuineAndLegal}}</span>
+                </dd>
+                <dt><span jhiTranslate="epmgatewayApp.productDocument.countryOfOrigin">Country Of Origin</span></dt>
+                <dd>
+                    <span>{{productDocument.countryOfOrigin}}</span>
+                </dd>
+                <dt><span jhiTranslate="epmgatewayApp.productDocument.warrantyPeriod">Warranty Period</span></dt>
+                <dd>
+                    <span>{{productDocument.warrantyPeriod}}</span>
+                </dd>
+                <dt><span jhiTranslate="epmgatewayApp.productDocument.warrantyPolicy">Warranty Policy</span></dt>
+                <dd>
+                    <span>{{productDocument.warrantyPolicy}}</span>
+                </dd>
+                <dt><span jhiTranslate="epmgatewayApp.productDocument.warrantyType">Warranty Type</span></dt>
+                <dd>
+                    <div *ngIf="productDocument.warrantyTypeId">
+                        <a [routerLink]="['/warranty-types', productDocument.warrantyTypeId, 'view']">{{productDocument.warrantyTypeName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="epmgatewayApp.productDocument.culture">Culture</span></dt>
+                <dd>
+                    <div *ngIf="productDocument.cultureId">
+                        <a [routerLink]="['/culture', productDocument.cultureId, 'view']">{{productDocument.cultureName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/product-document', productDocument.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

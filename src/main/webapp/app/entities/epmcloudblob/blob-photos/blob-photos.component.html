@@ -1,0 +1,131 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="epmgatewayApp.epmcloudblobBlobPhotos.home.title">Blob Photos</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-blob-photos" [routerLink]="['/blob-photos/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="epmgatewayApp.epmcloudblobBlobPhotos.home.createLabel">
+            Create a new Blob Photos
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'epmgatewayApp.epmcloudblobBlobPhotos.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="alert alert-warning" *ngIf="blobPhotos?.length === 0">
+        <span jhiTranslate="epmgatewayApp.epmcloudblobBlobPhotos.home.notFound">No blobPhotos found</span>
+    </div>
+    <div class="table-responsive" *ngIf="blobPhotos?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="epmgatewayApp.epmcloudblobBlobPhotos.thumbnailPhotoBlob">Thumbnail Photo Blob</span></th>
+            <th scope="col" ><span jhiTranslate="epmgatewayApp.epmcloudblobBlobPhotos.originalPhotoBlob">Original Photo Blob</span></th>
+            <th scope="col" ><span jhiTranslate="epmgatewayApp.epmcloudblobBlobPhotos.bannerTallPhotoBlob">Banner Tall Photo Blob</span></th>
+            <th scope="col" ><span jhiTranslate="epmgatewayApp.epmcloudblobBlobPhotos.bannerWidePhotoBlob">Banner Wide Photo Blob</span></th>
+            <th scope="col" ><span jhiTranslate="epmgatewayApp.epmcloudblobBlobPhotos.circlePhotoBlob">Circle Photo Blob</span></th>
+            <th scope="col" ><span jhiTranslate="epmgatewayApp.epmcloudblobBlobPhotos.sharpenedPhotoBlob">Sharpened Photo Blob</span></th>
+            <th scope="col" ><span jhiTranslate="epmgatewayApp.epmcloudblobBlobPhotos.squarePhotoBlob">Square Photo Blob</span></th>
+            <th scope="col" ><span jhiTranslate="epmgatewayApp.epmcloudblobBlobPhotos.watermarkPhotoBlob">Watermark Photo Blob</span></th>
+            <th scope="col" ><span jhiTranslate="epmgatewayApp.epmcloudblobBlobPhotos.lastEditedBy">Last Edited By</span></th>
+            <th scope="col" ><span jhiTranslate="epmgatewayApp.epmcloudblobBlobPhotos.lastEditedWhen">Last Edited When</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let blobPhotos of blobPhotos ;trackBy: trackId">
+                <td><a [routerLink]="['/blob-photos', blobPhotos.id, 'view' ]">{{blobPhotos.id}}</a></td>
+                <td>
+                    <a *ngIf="blobPhotos.thumbnailPhotoBlob" (click)="openFile(blobPhotos.thumbnailPhotoBlobContentType, blobPhotos.thumbnailPhotoBlob)">
+                        <img [src]="'data:' + blobPhotos.thumbnailPhotoBlobContentType + ';base64,' + blobPhotos.thumbnailPhotoBlob" style="max-height: 30px;" alt="blobPhotos image"/>
+                    </a>
+                    <span *ngIf="blobPhotos.thumbnailPhotoBlob">{{blobPhotos.thumbnailPhotoBlobContentType}}, {{byteSize(blobPhotos.thumbnailPhotoBlob)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="blobPhotos.originalPhotoBlob" (click)="openFile(blobPhotos.originalPhotoBlobContentType, blobPhotos.originalPhotoBlob)">
+                        <img [src]="'data:' + blobPhotos.originalPhotoBlobContentType + ';base64,' + blobPhotos.originalPhotoBlob" style="max-height: 30px;" alt="blobPhotos image"/>
+                    </a>
+                    <span *ngIf="blobPhotos.originalPhotoBlob">{{blobPhotos.originalPhotoBlobContentType}}, {{byteSize(blobPhotos.originalPhotoBlob)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="blobPhotos.bannerTallPhotoBlob" (click)="openFile(blobPhotos.bannerTallPhotoBlobContentType, blobPhotos.bannerTallPhotoBlob)">
+                        <img [src]="'data:' + blobPhotos.bannerTallPhotoBlobContentType + ';base64,' + blobPhotos.bannerTallPhotoBlob" style="max-height: 30px;" alt="blobPhotos image"/>
+                    </a>
+                    <span *ngIf="blobPhotos.bannerTallPhotoBlob">{{blobPhotos.bannerTallPhotoBlobContentType}}, {{byteSize(blobPhotos.bannerTallPhotoBlob)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="blobPhotos.bannerWidePhotoBlob" (click)="openFile(blobPhotos.bannerWidePhotoBlobContentType, blobPhotos.bannerWidePhotoBlob)">
+                        <img [src]="'data:' + blobPhotos.bannerWidePhotoBlobContentType + ';base64,' + blobPhotos.bannerWidePhotoBlob" style="max-height: 30px;" alt="blobPhotos image"/>
+                    </a>
+                    <span *ngIf="blobPhotos.bannerWidePhotoBlob">{{blobPhotos.bannerWidePhotoBlobContentType}}, {{byteSize(blobPhotos.bannerWidePhotoBlob)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="blobPhotos.circlePhotoBlob" (click)="openFile(blobPhotos.circlePhotoBlobContentType, blobPhotos.circlePhotoBlob)">
+                        <img [src]="'data:' + blobPhotos.circlePhotoBlobContentType + ';base64,' + blobPhotos.circlePhotoBlob" style="max-height: 30px;" alt="blobPhotos image"/>
+                    </a>
+                    <span *ngIf="blobPhotos.circlePhotoBlob">{{blobPhotos.circlePhotoBlobContentType}}, {{byteSize(blobPhotos.circlePhotoBlob)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="blobPhotos.sharpenedPhotoBlob" (click)="openFile(blobPhotos.sharpenedPhotoBlobContentType, blobPhotos.sharpenedPhotoBlob)">
+                        <img [src]="'data:' + blobPhotos.sharpenedPhotoBlobContentType + ';base64,' + blobPhotos.sharpenedPhotoBlob" style="max-height: 30px;" alt="blobPhotos image"/>
+                    </a>
+                    <span *ngIf="blobPhotos.sharpenedPhotoBlob">{{blobPhotos.sharpenedPhotoBlobContentType}}, {{byteSize(blobPhotos.sharpenedPhotoBlob)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="blobPhotos.squarePhotoBlob" (click)="openFile(blobPhotos.squarePhotoBlobContentType, blobPhotos.squarePhotoBlob)">
+                        <img [src]="'data:' + blobPhotos.squarePhotoBlobContentType + ';base64,' + blobPhotos.squarePhotoBlob" style="max-height: 30px;" alt="blobPhotos image"/>
+                    </a>
+                    <span *ngIf="blobPhotos.squarePhotoBlob">{{blobPhotos.squarePhotoBlobContentType}}, {{byteSize(blobPhotos.squarePhotoBlob)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="blobPhotos.watermarkPhotoBlob" (click)="openFile(blobPhotos.watermarkPhotoBlobContentType, blobPhotos.watermarkPhotoBlob)">
+                        <img [src]="'data:' + blobPhotos.watermarkPhotoBlobContentType + ';base64,' + blobPhotos.watermarkPhotoBlob" style="max-height: 30px;" alt="blobPhotos image"/>
+                    </a>
+                    <span *ngIf="blobPhotos.watermarkPhotoBlob">{{blobPhotos.watermarkPhotoBlobContentType}}, {{byteSize(blobPhotos.watermarkPhotoBlob)}}</span>
+                </td>
+                <td>{{blobPhotos.lastEditedBy}}</td>
+                <td>{{blobPhotos.lastEditedWhen | date:'medium'}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/blob-photos', blobPhotos.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/blob-photos', blobPhotos.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/blob-photos', { outlets: { popup: blobPhotos.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

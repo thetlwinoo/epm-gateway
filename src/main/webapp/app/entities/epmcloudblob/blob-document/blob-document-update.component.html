@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-blob-document-heading" jhiTranslate="epmgatewayApp.epmcloudblobBlobDocument.home.createOrEditLabel">Create or edit a Blob Document</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="epmgatewayApp.epmcloudblobBlobDocument.document" for="field_document">Document</label>
+                    <div>
+                        <div *ngIf="editForm.get('document').value" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(editForm.get('documentContentType').value, editForm.get('document').value)" jhiTranslate="entity.action.open">open</a><br>
+                            <span class="pull-left">{{editForm.get('documentContentType').value}}, {{byteSize(editForm.get('document').value)}}</span>
+                            <button type="button" (click)="editForm.patchValue({document: null});editForm.patchValue({documentContentType: null});"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_document" (change)="setFileData($event, 'document', false)" jhiTranslate="entity.action.addblob"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="document" id="field_document"
+                           formControlName="document"/>
+                    <input type="hidden" class="form-control" name="documentContentType" id="field_documentContentType"
+                           formControlName="documentContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="epmgatewayApp.epmcloudblobBlobDocument.lastEditedBy" for="field_lastEditedBy">Last Edited By</label>
+                    <input type="text" class="form-control" name="lastEditedBy" id="field_lastEditedBy"
+                           formControlName="lastEditedBy"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="epmgatewayApp.epmcloudblobBlobDocument.lastEditedWhen" for="field_lastEditedWhen">Last Edited When</label>
+                    <div class="d-flex">
+                        <input id="field_lastEditedWhen" type="datetime-local" class="form-control" name="lastEditedWhen" formControlName="lastEditedWhen" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

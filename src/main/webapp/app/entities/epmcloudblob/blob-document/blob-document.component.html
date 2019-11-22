@@ -1,0 +1,80 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="epmgatewayApp.epmcloudblobBlobDocument.home.title">Blob Documents</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-blob-document" [routerLink]="['/blob-document/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="epmgatewayApp.epmcloudblobBlobDocument.home.createLabel">
+            Create a new Blob Document
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'epmgatewayApp.epmcloudblobBlobDocument.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="alert alert-warning" *ngIf="blobDocuments?.length === 0">
+        <span jhiTranslate="epmgatewayApp.epmcloudblobBlobDocument.home.notFound">No blobDocuments found</span>
+    </div>
+    <div class="table-responsive" *ngIf="blobDocuments?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="epmgatewayApp.epmcloudblobBlobDocument.document">Document</span></th>
+            <th scope="col" ><span jhiTranslate="epmgatewayApp.epmcloudblobBlobDocument.lastEditedBy">Last Edited By</span></th>
+            <th scope="col" ><span jhiTranslate="epmgatewayApp.epmcloudblobBlobDocument.lastEditedWhen">Last Edited When</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let blobDocument of blobDocuments ;trackBy: trackId">
+                <td><a [routerLink]="['/blob-document', blobDocument.id, 'view' ]">{{blobDocument.id}}</a></td>
+                <td>
+                    <a *ngIf="blobDocument.document" (click)="openFile(blobDocument.documentContentType, blobDocument.document)" jhiTranslate="entity.action.open">open</a>
+                    <span *ngIf="blobDocument.document">{{blobDocument.documentContentType}}, {{byteSize(blobDocument.document)}}</span>
+                </td>
+                <td>{{blobDocument.lastEditedBy}}</td>
+                <td>{{blobDocument.lastEditedWhen | date:'medium'}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/blob-document', blobDocument.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/blob-document', blobDocument.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/blob-document', { outlets: { popup: blobDocument.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

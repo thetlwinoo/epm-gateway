@@ -1,0 +1,29 @@
+{
+  "epmgatewayApp": {
+    "epmcloudblobBlobDocument": {
+      "home": {
+        "title": "Blob Documents",
+        "createLabel": "Create a new Blob Document",
+        "createOrEditLabel": "Create or edit a Blob Document",
+        "search": "Search for Blob Document",
+        "notFound": "No Blob Documents found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Blob Document {{ id }}?"
+      },
+      "detail": {
+        "title": "Blob Document"
+      },
+      "document": "Document",
+      "lastEditedBy": "Last Edited By",
+      "lastEditedWhen": "Last Edited When"
+    }
+  },
+  "epmcloudblobApp": {
+    "epmcloudblobBlobDocument": {
+      "created": "A new Blob Document is created with identifier {{ param }}",
+      "updated": "A Blob Document is updated with identifier {{ param }}",
+      "deleted": "A Blob Document is deleted with identifier {{ param }}"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "epmgatewayApp": {
+    "productDocument": {
+      "home": {
+        "title": "Product Documents",
+        "createLabel": "Create a new Product Document",
+        "createOrEditLabel": "Create or edit a Product Document",
+        "search": "Search for Product Document",
+        "notFound": "No Product Documents found"
+      },
+      "created": "A new Product Document is created with identifier {{ param }}",
+      "updated": "A Product Document is updated with identifier {{ param }}",
+      "deleted": "A Product Document is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Product Document {{ id }}?"
+      },
+      "detail": {
+        "title": "Product Document"
+      },
+      "videoUrl": "Video Url",
+      "highlightsUrl": "Highlights Url",
+      "longDescriptionUrl": "Long Description Url",
+      "shortDescriptionUrl": "Short Description Url",
+      "descriptionUrl": "Description Url",
+      "careInstructionsUrl": "Care Instructions Url",
+      "specialFeaturesUrl": "Special Features Url",
+      "usageAndSideEffectsUrl": "Usage And Side Effects Url",
+      "safetyWarnningUrl": "Safety Warnning Url",
+      "productType": "Product Type",
+      "modelName": "Model Name",
+      "modelNumber": "Model Number",
+      "fabricType": "Fabric Type",
+      "productComplianceCertificate": "Product Compliance Certificate",
+      "genuineAndLegal": "Genuine And Legal",
+      "countryOfOrigin": "Country Of Origin",
+      "warrantyPeriod": "Warranty Period",
+      "warrantyPolicy": "Warranty Policy",
+      "warrantyType": "Warranty Type",
+      "culture": "Culture"
+    }
+  }
+}

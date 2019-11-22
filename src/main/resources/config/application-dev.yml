@@ -49,8 +49,8 @@ spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     url: jdbc:postgresql://localhost:5432/epmgateway
-    username: epmgateway
-    password:
+    username: postgres
+    password: Passw0rd
     hikari:
       poolName: Hikari
       auto-commit: false
@@ -71,12 +71,18 @@ spring:
           home: target/elasticsearch
   liquibase:
     # Remove 'faker' if you do not want the sample data to be loaded automatically
-    contexts: dev, faker
+    contexts: dev
   mail:
-    host: localhost
+    host: smtp.gmail.com
     port: 25
-    username:
-    password:
+    username: smilevase@gmail.com
+    password: asqw12345
+    protocol: smtp
+    tls: true
+    properties.mail.smtp:
+      auth: true
+      starttls.enable: true
+      ssl.trust: smtp.gmail.com
   messages:
     cache-duration: PT1S # 1 second, see the ISO 8601 standard
   thymeleaf:

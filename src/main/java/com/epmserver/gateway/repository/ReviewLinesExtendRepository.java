@@ -1,4 +1,9 @@
 package com.epmserver.gateway.repository;
 
-public interface ReviewLinesExtendRepository {
+import com.epmserver.gateway.domain.ReviewLines;
+
+import java.util.List;
+
+public interface ReviewLinesExtendRepository extends ReviewLinesRepository {
+    List<ReviewLines> findAllByStockItemId(Long stockItemId);
 }

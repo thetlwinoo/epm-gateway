@@ -1,0 +1,36 @@
+{
+  "epmgatewayApp": {
+    "epmcloudblobBlobPhotos": {
+      "home": {
+        "title": "Blob Photos",
+        "createLabel": "Create a new Blob Photos",
+        "createOrEditLabel": "Create or edit a Blob Photos",
+        "search": "Search for Blob Photos",
+        "notFound": "No Blob Photos found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Blob Photos {{ id }}?"
+      },
+      "detail": {
+        "title": "Blob Photos"
+      },
+      "thumbnailPhotoBlob": "Thumbnail Photo Blob",
+      "originalPhotoBlob": "Original Photo Blob",
+      "bannerTallPhotoBlob": "Banner Tall Photo Blob",
+      "bannerWidePhotoBlob": "Banner Wide Photo Blob",
+      "circlePhotoBlob": "Circle Photo Blob",
+      "sharpenedPhotoBlob": "Sharpened Photo Blob",
+      "squarePhotoBlob": "Square Photo Blob",
+      "watermarkPhotoBlob": "Watermark Photo Blob",
+      "lastEditedBy": "Last Edited By",
+      "lastEditedWhen": "Last Edited When"
+    }
+  },
+  "epmcloudblobApp": {
+    "epmcloudblobBlobPhotos": {
+      "created": "A new Blob Photos is created with identifier {{ param }}",
+      "updated": "A Blob Photos is updated with identifier {{ param }}",
+      "deleted": "A Blob Photos is deleted with identifier {{ param }}"
+    }
+  }
+}

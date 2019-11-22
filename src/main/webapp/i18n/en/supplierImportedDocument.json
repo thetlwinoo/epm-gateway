@@ -1,0 +1,27 @@
+{
+  "epmgatewayApp": {
+    "supplierImportedDocument": {
+      "home": {
+        "title": "Supplier Imported Documents",
+        "createLabel": "Create a new Supplier Imported Document",
+        "createOrEditLabel": "Create or edit a Supplier Imported Document",
+        "search": "Search for Supplier Imported Document",
+        "notFound": "No Supplier Imported Documents found"
+      },
+      "created": "A new Supplier Imported Document is created with identifier {{ param }}",
+      "updated": "A Supplier Imported Document is updated with identifier {{ param }}",
+      "deleted": "A Supplier Imported Document is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Supplier Imported Document {{ id }}?"
+      },
+      "detail": {
+        "title": "Supplier Imported Document"
+      },
+      "documentUrl": "Document Url",
+      "documentType": "Document Type",
+      "lastEditedBy": "Last Edited By",
+      "lastEditedWhen": "Last Edited When",
+      "uploadTransaction": "Upload Transaction"
+    }
+  }
+}
